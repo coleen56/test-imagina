@@ -1,5 +1,6 @@
 <?php
 require "controller.php";
+$niveauMax = getNiveauPropagation();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +11,7 @@ require "controller.php";
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <h1>Tableau :</h1>
     <table>
     <?php
     foreach($champs as $ligne) {
@@ -27,6 +29,7 @@ require "controller.php";
     }
     ?>
     </table>
+    <h4>Nombre de cycles de propagation nécessaires pour parcourir toutes les cases vides : <?=$niveauMax?></h4>
 </body>
 </html>
 

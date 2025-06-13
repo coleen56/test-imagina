@@ -46,20 +46,15 @@ function getCasesVoisinesVides(Cellule $cell) {
 function getNiveauPropagation() {
     global $start;
     $cellulesTouchees[] = $start;
-    echo "<pre>";
-    $compteur = 1;
+    $compteur = 0;
     while(!empty($cellulesTouchees)) {
+        $compteur++;
         $currentCells = $cellulesTouchees;
         $cellulesTouchees = [];
         foreach($currentCells as $curCell) {
-            // echo "Cellules touchées au tour n°" . $compteur . " par la cellule " . $curCell->toString() . "\n";
             $cellulesTouchees =array_merge($cellulesTouchees, getCasesVoisinesVides($curCell));
-            // print_r($cellulesTouchees);
         }
-        $compteur++;
     }
     return $compteur;
 }
-
-echo(getNiveauPropagation());
 ?>
